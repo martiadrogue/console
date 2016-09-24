@@ -1,16 +1,16 @@
 {
-    "name": "martiadrogue/:package_name",
+    "name": "martiadrogue/console",
     "type": "library",
-    "description": ":package_description",
+    "description": "A context to create the most powerful command line interfaces",
     "keywords": [
         "martiadrogue",
-        ":package_name"
+        "console"
     ],
-    "homepage": "https://github.com/martiadrogue/:package_name",
+    "homepage": "https://github.com/martiadrogue/console",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/martiadrogue/:package_name/issues",
-        "source": "https://github.com/martiadrogue/:package_name"
+        "issues": "https://github.com/martiadrogue/console/issues",
+        "source": "https://github.com/martiadrogue/console"
     },
     "authors": [
         {
@@ -20,8 +20,8 @@
             "role": "Developer"
         },
         {
-            "name": ":package_name Contributtors",
-            "homepage": "https://github.com/martiadrogue/:package_name/contributors"
+            "name": "console Contributtors",
+            "homepage": "https://github.com/martiadrogue/console/contributors"
         }
     ],
     "require": {
@@ -38,12 +38,12 @@
     },
     "autoload": {
         "psr-4": {
-            "MartiAdrogue\\:package_name\\": "src"
+            "MartiAdrogue\\console\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MartiAdrogue\\:package_name\\": "tests"
+            "MartiAdrogue\\console\\": "tests"
         }
     },
     "scripts": {

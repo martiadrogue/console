@@ -1,4 +1,4 @@
-# :package_name
+# console
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -6,41 +6,33 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-**Note:** Replace ```:package_name``` ```:package_description``` with their
-correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and
-[composer.json](composer.json) files, then delete this line.
-
-This is where your description should go. Try and limit it to a paragraph or
-two, and maybe throw in a mention of what PSRs you support to avoid any
-confusion with users and contributors.
-
-Inspired by phpleague/skeleton, peterkokot/php-skeleton and koriym/PHP.Skeleton.
+A context to create the most powerful command line interfaces.
 
 ## Install
 
-Via Composer, update your composer.json to use martiadrogue/:package_name
+Via Composer, update your composer.json to use martiadrogue/console
 
 ```json
 "repositories": [
     {
         "type": "git",
-        "url": "https://github.com/martiadrogue/:package_name.git"
+        "url": "https://github.com/martiadrogue/console.git"
     }
 ],
 ```
 
-Then you must add martiadrogue/:package_name in require.
+Then you must add martiadrogue/console in require.
 
 ```json
 "require": {
-    "martiadrogue/:package_name": "dev-devel"
+    "martiadrogue/console": "dev-devel"
 },
 ```
 
 Or invoke
 
 ```shell
-composer require martiadrogue/:package_name:@dev
+composer require martiadrogue/console:@dev
 ```
 
 Old school, forget all and grab files from [dist directory][link-download]
@@ -94,16 +86,16 @@ marti.adrogue@gmail.com instead of using the issue tracker.
 The MIT License (MIT). Please see [License File](LICENSE.md) for more
 information.
 
-[ico-version]: https://img.shields.io/packagist/v/martiadrogue/:package_name.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/martiadrogue/console.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/martiadrogue/:package_name.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/martiadrogue/:package_name.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/martiadrogue/:package_name.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/martiadrogue/console.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/martiadrogue/console.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/martiadrogue/console.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/martiadrogue/:package_name
-[link-scrutinizer]: https://scrutinizer-ci.com/g/martiadrogue/:package_name/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/martiadrogue/:package_name
-[link-downloads]: https://packagist.org/packages/martiadrogue/:package_name
+[link-packagist]: https://packagist.org/packages/martiadrogue/console
+[link-scrutinizer]: https://scrutinizer-ci.com/g/martiadrogue/console/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/martiadrogue/console
+[link-downloads]: https://packagist.org/packages/martiadrogue/console
 [link-author]: https://github.com/martiadrogue
 [link-contributors]: ../../contributors
-[link-download]: https://github.com/martiadrogue/:package_name/archive/master.zip
+[link-download]: https://github.com/martiadrogue/console/archive/master.zip
