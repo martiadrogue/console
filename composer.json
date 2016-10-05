@@ -46,6 +46,7 @@
             "MartiAdrogue\\Console\\Tests\\": "tests"
         }
     },
+    "bin": [ "bin/console" ],
     "scripts": {
         "test": [
             "phpmd src text phpmd.xml",
