@@ -20,7 +20,7 @@
             "role": "Developer"
         },
         {
-            "name": "console Contributtors",
+            "name": "Console Contributtors",
             "homepage": "https://github.com/martiadrogue/console/contributors"
         }
     ],
@@ -38,12 +38,12 @@
     },
     "autoload": {
         "psr-4": {
-            "MartiAdrogue\\console\\": "src"
+            "MartiAdrogue\\Console\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MartiAdrogue\\console\\": "tests"
+            "MartiAdrogue\\Console\\Tests\\": "tests"
         }
     },
     "scripts": {
