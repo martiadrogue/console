@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+/*
+ * This file is part of Console package.
+ *
+ * (c) Martí Adrogué <marti.adrogue@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+require_once '../vendor/autoload.php';
+
+use MartiAdrogue\Console\Application;
+use MartiAdrogue\Console\Input;
+$input = new Input($_SERVER['argv']);
+$application = new Application($input);
+
+$output = $application->run();
+// $output->print();
