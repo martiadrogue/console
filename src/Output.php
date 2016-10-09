@@ -12,7 +12,14 @@ namespace MartiAdrogue\Console;
 
 class Output
 {
-    public function print()
+    public function turnOnBuffering()
     {
+        ob_start();
+    }
+
+    public function print($data)
+    {
+        ob_end_clean();
+        echo $data.PHP_EOL;
     }
 }

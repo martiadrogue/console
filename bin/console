@@ -13,8 +13,10 @@ require_once '../vendor/autoload.php';
 
 use MartiAdrogue\Console\Application;
 use MartiAdrogue\Console\Input;
+use MartiAdrogue\Console\Output;
+
+$output = new Output();
 $input = new Input($_SERVER['argv']);
-$application = new Application($input);
+$application = new Application($input, $output);
 
 $output = $application->run();
-// $output->print();

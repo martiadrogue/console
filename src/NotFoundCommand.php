@@ -18,7 +18,9 @@ class NotFoundCommand extends Command
     {
     }
 
-    public function execute(array $arguments, Output $output)
+    public function execute()
     {
+        $output = $this->core->getOutput();
+        $output->print('Command not found.');
     }
 }
