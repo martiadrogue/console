@@ -12,7 +12,7 @@ namespace MartiAdrogue\Console;
 
 abstract class Command
 {
-    private $core;
+    protected $core;
     private $name;
     private $description;
     private $help;
