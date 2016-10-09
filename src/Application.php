@@ -10,18 +10,18 @@
 
 namespace MartiAdrogue\Console;
 
-class Application
+class Application extends Core
 {
-    private $input;
-
-    public function __construct(Input $input)
+    public function __construct(Input $input, Output $output)
     {
-        $this->input = $input;
+        parent::__construct($input, $output);
     }
 
     public function run()
     {
-        $router = new Router($this->input);
+        $commandName = $this->getCommandName();
+        $dependencySet = $this->selfArrayify();
+        $router = new Router($commandName, $dependencySet);
         $command = $router->launch();
 
         return $command->blast();

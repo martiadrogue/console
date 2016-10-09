@@ -15,14 +15,16 @@ use ReflectionClass;
 
 class Router
 {
-    private $input;
+    private $commandName;
+    private $dependencySet;
     private $configPath;
     private $notFoundCommand;
     private $errorCommand;
 
-    public function __construct(Input $input)
+    public function __construct($commandName, array $dependencySet)
     {
-        $this->input = $input;
+        $this->commandName = $commandName;
+        $this->dependencySet = $dependencySet;
         $this->configPath = '../config';
         $this->notFoundCommand = NotFoundCommand::class;
         $this->errorCommand = ErrorCommand::class;
@@ -30,16 +32,14 @@ class Router
 
     public function launch()
     {
-        $inputList = $this->input->parse();
-        $commandName = array_shift($inputList);
         $routeMap = require $this->configPath.'/routing.php';
         $commandSet = array_map(function ($route) {
             return $route['command'];
         }, $routeMap);
-        $command = in_array($commandName, $commandSet) ? $commandName : $this->notFoundCommand;
+        $command = in_array($this->commandName, $commandSet) ? $this->commandName : $this->notFoundCommand;
         $commandReflector = $this->getReflector($command);
 
-        return $commandReflector->newInstance();
+        return $commandReflector->newInstanceArgs($this->dependencySet);
     }
 
     private function getReflector($command)

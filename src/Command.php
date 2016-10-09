@@ -12,22 +12,23 @@ namespace MartiAdrogue\Console;
 
 abstract class Command
 {
+    private $core;
     private $name;
     private $description;
     private $help;
 
-    public function __construct()
+    public function __construct(Core $core)
     {
+        $this->core = $core;
         $this->name = null;
         $this->description = null;
         $this->help = null;
         $this->configure();
     }
 
-    public function blast(array $arguments)
+    public function blast()
     {
-        $output = new OutPut();
-        $statusCode = $this->execute($arguments, $output);
+        $statusCode = $this->execute();
 
         return is_numeric($statusCode) ? (int) $statusCode : 0;
     }
@@ -49,5 +50,5 @@ abstract class Command
 
     abstract public function configure();
 
-    abstract public function execute(array $arguments, Output $output);
+    abstract public function execute();
 }
