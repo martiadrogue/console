@@ -19,7 +19,9 @@ class Output
 
     public function print($data)
     {
-        ob_end_clean();
+        if (ob_get_length()) {
+            ob_end_clean();
+        }
         echo $data.PHP_EOL;
     }
 }
