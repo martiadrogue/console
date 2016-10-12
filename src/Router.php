@@ -47,7 +47,7 @@ class Router
     private function getReflector($namespace)
     {
         try {
-            return new ReflectionClass((string) $namespace);
+            return new ReflectionClass($namespace);
         } catch (LogicException $e) {
             return new ReflectionClass($this->errorCommand);
         } catch (ReflectionException $e) {
