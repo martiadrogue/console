@@ -30,7 +30,7 @@ class Router
         $this->errorCommand = ErrorCommand::class;
     }
 
-    public function launch()
+    public function dispatch()
     {
         $routeMap = require $this->configPath.'/routing.php';
         $commandSet = array_map(function ($route) {
