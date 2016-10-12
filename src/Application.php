@@ -22,7 +22,7 @@ class Application extends Core
         $commandName = $this->getCommandName();
         $dependencySet = $this->selfArrayify();
         $router = new Router($commandName, $dependencySet);
-        $command = $router->launch();
+        $command = $router->dispatch();
 
         return $command->blast();
     }

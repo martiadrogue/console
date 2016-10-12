@@ -21,6 +21,6 @@ class ErrorCommand extends Command
     public function execute()
     {
         $output = $this->core->getOutput();
-        $output->print('Something go wrong during command\'s inflation.');
+        $output->print('Something terrible happened during command\'s inflation.');
     }
 }
