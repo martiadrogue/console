@@ -42,10 +42,10 @@ class Router
         return $commandReflector->newInstanceArgs($this->dependencySet);
     }
 
-    private function getReflector($command)
+    private function getReflector($namespace)
     {
         try {
-            return new ReflectionClass((string) $command);
+            return new ReflectionClass((string) $namespace);
         } catch (LogicException $e) {
             return new ReflectionClass($this->errorCommand);
         } catch (ReflectionException $e) {
