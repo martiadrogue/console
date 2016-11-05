@@ -23,7 +23,7 @@ class Router
 
     public function __construct($commandName, array $dependencySet)
     {
-        $this->commandName = $commandName;
+        $this->commandName = $commandName ? $commandName : ErrorCommand::class;
         $this->dependencySet = $dependencySet;
         $this->configPath = '../config';
         $this->notFoundCommand = NotFoundCommand::class;

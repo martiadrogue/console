@@ -35,7 +35,7 @@ class Core
     {
         $inputList = $this->input->parse();
 
-        return array_shift($inputList);
+        return (string) array_shift($inputList);
     }
 
     protected function selfArrayify()

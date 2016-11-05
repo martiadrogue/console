@@ -19,4 +19,4 @@ $output = new Output();
 $input = new Input($_SERVER['argv']);
 $application = new Application($input, $output);
 
-$output = $application->run();
+$application->run();
