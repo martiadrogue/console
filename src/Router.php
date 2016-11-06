@@ -32,21 +32,26 @@ class Router
 
     public function dispatch()
     {
+        $package = $this->parsePackage();
+        $commandReflector = $this->getReflector($package);
+
+        return $commandReflector->newInstanceArgs($this->dependencySet);
+    }
+
+    private function parsePackage()
+    {
         $routeMap = require $this->configPath.'/routing.php';
         $commandSet = array_map(function ($route) {
             return $route['command'];
         }, $routeMap);
+
         $command = in_array($this->commandName, $commandSet) ? $this->commandName : $this->notFoundCommand;
         $index = array_search($command, $commandSet);
-
-        $route = ['defaults' => $command];
         if (false != $index) {
-            $route = $routeMap[$index];
+            return $routeMap[$index]['defaults'];
         }
 
-        $commandReflector = $this->getReflector($route['defaults']);
-
-        return $commandReflector->newInstanceArgs($this->dependencySet);
+        return $command;
     }
 
     private function getReflector($namespace)
