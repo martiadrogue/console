@@ -38,7 +38,12 @@ class Router
         }, $routeMap);
         $command = in_array($this->commandName, $commandSet) ? $this->commandName : $this->notFoundCommand;
         $index = array_search($command, $commandSet);
-        $route = $routeMap[$index];
+
+        $route = ['defaults' => $command];
+        if (false != $index) {
+            $route = $routeMap[$index];
+        }
+
         $commandReflector = $this->getReflector($route['defaults']);
 
         return $commandReflector->newInstanceArgs($this->dependencySet);
