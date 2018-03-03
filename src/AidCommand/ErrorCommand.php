@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace MartiAdrogue\Console;
+namespace MartiAdrogue\Console\AidCommand;
 
 use MartiAdrogue\Console\Command;
 

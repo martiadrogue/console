@@ -10,35 +10,27 @@
 
 namespace MartiAdrogue\Console;
 
-use ReflectionException;
 use ReflectionClass;
+use ReflectionException;
 
 class Router
 {
-    private $commandName;
     private $dependencySet;
     private $configPath;
-    private $notFoundCommand;
-    private $errorCommand;
 
     public function __construct($commandName, array $dependencySet)
     {
-        $this->commandName = $commandName ? $commandName : ErrorCommand::class;
+        $this->commandName = $commandName ?: 'Regular';
         $this->dependencySet = $dependencySet;
-        $this->configPath = '../config';
-        $this->notFoundCommand = NotFoundCommand::class;
-        $this->errorCommand = ErrorCommand::class;
     }
 
     public function dispatch()
     {
-        $routeMap = require $this->configPath.'/routing.php';
-        $commandSet = array_map(function ($route) {
-            return $route['command'];
-        }, $routeMap);
-        $command = in_array($this->commandName, $commandSet) ? $this->commandName : $this->notFoundCommand;
-        $index = array_search((string) $command, $commandSet);
-        $route = $routeMap[$index];
+        $routePath = CoreConstant::CONFIG_PATH;
+        $routeMap = new RouteMap($routePath);
+        $routeMap->normalizeRouteMap();
+
+        $route = $this->findRoute($routeMap);
         $commandReflector = $this->getReflector($route['defaults']);
 
         return $commandReflector->newInstanceArgs($this->dependencySet);
@@ -49,9 +41,18 @@ class Router
         try {
             return new ReflectionClass($namespace);
         } catch (LogicException $e) {
-            return new ReflectionClass($this->errorCommand);
+            return new ReflectionClass(self::ERROR_CMD);
         } catch (ReflectionException $e) {
-            return new ReflectionClass($this->errorCommand);
+            return new ReflectionClass(self::ERROR_CMD);
         }
+    }
+
+    private function findRoute(RouteMap $routeMap)
+    {
+        $commandAvailableSet = $routeMap->getCommands();
+        $command = in_array($this->commandName, $commandAvailableSet) ? $this->commandName : 'NotFound';
+        $index = array_search($command, $commandAvailableSet);
+
+        return $routeMap->getRoute($index);
     }
 }

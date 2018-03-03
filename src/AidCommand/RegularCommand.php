@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace MartiAdrogue\Console;
+namespace MartiAdrogue\Console\AidCommand;
 
 use MartiAdrogue\Console\Command;
 
-class NotFoundCommand extends Command
+class RegularCommand extends Command
 {
     public function configure()
     {
@@ -21,6 +21,7 @@ class NotFoundCommand extends Command
     public function execute()
     {
         $output = $this->core->getOutput();
-        $output->print('Command not found.');
+        $output->print('Command Builder 3000. Beyound the future');
+        $output->print('By Martí Adrogué');
     }
 }
