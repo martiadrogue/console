@@ -23,5 +23,6 @@ class Output
             ob_end_clean();
         }
         echo $data.PHP_EOL;
+        $this->turnOnBuffering();
     }
 }
